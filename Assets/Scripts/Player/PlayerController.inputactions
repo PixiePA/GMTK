@@ -15,6 +15,33 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Select1",
+                    "type": "Button",
+                    "id": "52810269-4252-4108-bc69-950c573abac1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Select2",
+                    "type": "Button",
+                    "id": "758332d3-53c4-43fb-ad4b-662fe4f83e07",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Select3",
+                    "type": "Button",
+                    "id": "23cf536f-e1f8-4384-8a64-a9f82e0a44af",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Build",
                     "type": "Button",
                     "id": "07d5c819-41d8-4cf5-93d7-a6c96c618bb5",
@@ -27,6 +54,15 @@
                     "name": "MoveLeftRight",
                     "type": "Value",
                     "id": "395986be-fdee-45cd-bafd-63320893bb2e",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ScrollSelected",
+                    "type": "Value",
+                    "id": "36c4782d-6bf0-498a-b04d-46decbec0a4d",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -59,7 +95,7 @@
                 {
                     "name": "negative",
                     "id": "50fd401f-2a34-49c7-92bb-ece40948fce2",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -70,7 +106,7 @@
                 {
                     "name": "positive",
                     "id": "936e9ece-696c-470b-842f-4137040600c1",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -86,6 +122,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "Build",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Mouse",
+                    "id": "eec090df-79a1-4251-9e0e-e5d81d1e4254",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSelected",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "75ee50f1-71e7-47de-bf26-eb70fee953e5",
+                    "path": "<Mouse>/scroll/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSelected",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "36746edc-555e-4744-ab0a-33b12e47883f",
+                    "path": "<Mouse>/scroll/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSelected",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "24d33271-3c74-49b9-9653-2b5206c476dc",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d57552c4-fc80-44c9-b864-ec2ec8ca6a29",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a48d04e0-ad64-4def-ac7b-7ce41d80997f",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

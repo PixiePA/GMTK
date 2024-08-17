@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7862672562184664477}
   - component: {fileID: 7862672562184664544}
   - component: {fileID: 7862672562184664550}
+  - component: {fileID: 4218926752131349735}
   - component: {fileID: 7862672562184664545}
   m_Layer: 6
   m_Name: Triangle
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0.9069639, b: 0.1273585, a: 1}
+  m_Color: {r: 0.12549019, g: 0.4972146, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,12 +104,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &7862672562184664544
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,14 +148,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46897e93adb8f94e8aaf18599915338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3.6
+  moveSpeed: 4.5
   jumpSpeed: 5
   dir: 0
   rect:
     serializedVersion: 2
-    x: -0.5
-    y: -0.35
-    width: 1
+    x: -0.45
+    y: -0.4
+    width: 0.9
     height: 0.1
   layerMask:
     serializedVersion: 2
@@ -164,6 +165,24 @@ MonoBehaviour:
   continuousJumpModifier: 1
   jumpTime: 0.7
   jumpBufferTime: 0.3
+--- !u!114 &4218926752131349735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862672562184664476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d368a7a2e6734c148ab17853d90fa75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab:
+  - {fileID: 7518379807188518247, guid: 150e0930234c60447836e250a87c7520, type: 3}
+  - {fileID: 3597027239598160963, guid: fc4bddbb2b6828447b1aff63fd31d04d, type: 3}
+  - {fileID: 2164093057283987167, guid: b7c0e3c8ad1969342920495b29c90602, type: 3}
+  sprite: {fileID: 2800000, guid: b19d966813ed29342aab316c59a18439, type: 3}
+  selected: 0
 --- !u!114 &7862672562184664545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,9 +225,101 @@ MonoBehaviour:
     m_ActionId: 13f7221b-15f5-4039-8059-bd93d422f2cf
     m_ActionName: Default/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7862672562184664550}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: LeftRightInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 395986be-fdee-45cd-bafd-63320893bb2e
     m_ActionName: Default/MoveLeftRight[/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4218926752131349735}
+        m_TargetAssemblyTypeName: Dropper, Assembly-CSharp
+        m_MethodName: Drop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 07d5c819-41d8-4cf5-93d7-a6c96c618bb5
+    m_ActionName: Default/Build[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4218926752131349735}
+        m_TargetAssemblyTypeName: Dropper, Assembly-CSharp
+        m_MethodName: Select1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 52810269-4252-4108-bc69-950c573abac1
+    m_ActionName: Default/Select1[/Keyboard/1]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4218926752131349735}
+        m_TargetAssemblyTypeName: Dropper, Assembly-CSharp
+        m_MethodName: Select2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 758332d3-53c4-43fb-ad4b-662fe4f83e07
+    m_ActionName: Default/Select2[/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4218926752131349735}
+        m_TargetAssemblyTypeName: Dropper, Assembly-CSharp
+        m_MethodName: Select3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 23cf536f-e1f8-4384-8a64-a9f82e0a44af
+    m_ActionName: Default/Select3[/Keyboard/3]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4218926752131349735}
+        m_TargetAssemblyTypeName: Dropper, Assembly-CSharp
+        m_MethodName: Scroll
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 36c4782d-6bf0-498a-b04d-46decbec0a4d
+    m_ActionName: Default/ScrollSelected[/Mouse/scroll/y]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Default

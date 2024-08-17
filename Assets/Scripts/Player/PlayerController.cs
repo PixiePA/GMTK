@@ -36,7 +36,7 @@ public class PlayerController : Movement
             }
         }
 
-        Debug.Log(jumpBuffer);
+        //Debug.Log(jumpBuffer);
     }
 
     private void FixedUpdate()

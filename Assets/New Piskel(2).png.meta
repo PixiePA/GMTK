@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b19d966813ed29342aab316c59a18439
+guid: d8bcfd06c7945a04bb279854da9610a2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New Piskel(1)_0
+      name: New Piskel(2)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b66d292c9c4748f4eba4603a912dc1cb
-      internalID: -1253675767
+      spriteID: fc2b45e5e3b7ee24a979d77b185000a9
+      internalID: 399641638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel(1)_1
+      name: New Piskel(2)_1
       rect:
         serializedVersion: 2
         x: 16
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62d4752ff8999c84fba6ca0326bd43a5
-      internalID: -84646712
+      spriteID: 7c3d1379c2db6a94bafd59240c6a46f0
+      internalID: -1876089824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel(1)_2
+      name: New Piskel(2)_2
       rect:
         serializedVersion: 2
         x: 0
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7228993aa73c3634796e02b8e6d7d708
-      internalID: 1255436604
+      spriteID: 4f3ee05369a148b4dba0e596467b418a
+      internalID: 1031806063
       vertices: []
       indices: 
       edges: []
@@ -178,9 +178,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      New Piskel(1)_0: -1253675767
-      New Piskel(1)_2: 1255436604
-      New Piskel(1)_1: -84646712
+      New Piskel(2)_2: 1031806063
+      New Piskel(2)_0: 399641638
+      New Piskel(2)_1: -1876089824
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
