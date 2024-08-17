@@ -13,10 +13,26 @@ public class PlayerController : Movement
     [SerializeField] private float jumpBufferTime;
     private float jumpBuffer = -1;
     private bool jumpHeld;
+    private int updateCounter = 20;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
+        PlayerEvents.onPlayerHurt += PlayerHit;
+    }
+
+    private void OnDisable()
+    {
+        PlayerEvents.onPlayerHurt -= PlayerHit;
+    }
+
+    private void PlayerHit(int damage)
+    {
+        Debug.Log("YOU ARE DEAD");
     }
 
     // Update is called once per frame
@@ -45,6 +61,12 @@ public class PlayerController : Movement
         {
             jumpTimer -= Time.deltaTime;
             rb.AddForce(Vector2.up * jumpSpeed * continuousJumpModifier, ForceMode2D.Force);
+        }
+
+        if (updateCounter-- == 0)
+        {
+            PlayerEvents.PlayerLocationUpdated(transform.position);
+            updateCounter = 10;
         }
     }
 
