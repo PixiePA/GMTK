@@ -7,7 +7,7 @@ public static class GameEvents
 {
     public static Action onGoalReached;
 
-    public static void PlayerHurt()
+    public static void GoalReached()
     {
         onGoalReached?.Invoke();
     }
