@@ -6,6 +6,8 @@ using UnityEngine;
 public class ChargerController : Movement
 {
     private Vector2 playerPosition = Vector2.negativeInfinity;
+    private Vector2 chargeForce = Vector2.zero;
+    [SerializeField] private Rect wallDetector = new Rect();
     // Start is called before the first frame update
     private void Awake()
     {
@@ -35,10 +37,18 @@ public class ChargerController : Movement
 
     private void FixedUpdate()
     {
+
         if (Mathf.Abs(transform.position.y - playerPosition.y) < 1)
         {
             Charge();
         }
+
+        if (Physics2D.OverlapBox(wallDetector.center + (Vector2)transform.position, wallDetector.size, 0, layerMask))
+        {
+            chargeForce = Vector2.zero;
+        }
+
+        rb.AddForce(chargeForce, ForceMode2D.Impulse);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -56,7 +66,13 @@ public class ChargerController : Movement
 
     private void Charge()
     {
-        Vector2 forceVector = new Vector2(moveSpeed * Mathf.Sign(playerPosition.x - transform.position.x), 0);
-        rb.AddForce(forceVector, ForceMode2D.Impulse);
+        chargeForce = new Vector2(moveSpeed * Mathf.Sign(playerPosition.x - transform.position.x), 0);  
+    }
+
+    void OnDrawGizmos()
+    {
+        // draw rectangle in gizmos based on rect
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(wallDetector.center + (Vector2)transform.position, wallDetector.size);
     }
 }
