@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,9 +9,10 @@ public class PlayerController : Movement
 {
     [SerializeField] private float continuousJumpModifier = 0.1f;
     [SerializeField] private float jumpTime = 0.3f;
-    private float jumpTimer;
+    private float jumpTimer = -1;
     [SerializeField] private float jumpBufferTime = 0.5f;
-    private float jumpBuffer;
+    private float jumpBuffer = -1;
+    private bool jumpHeld;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,9 +58,11 @@ public class PlayerController : Movement
         if (context.performed)
         {
             jumpBuffer = jumpBufferTime;
+            jumpHeld = true;
         }
         else if (context.canceled)
         {
+            jumpHeld = false;
             if (isJumping)
             {
                 jumpTimer = 0;
@@ -77,7 +81,10 @@ public class PlayerController : Movement
     protected override void Jump()
     {
         base.Jump();
-        jumpTimer = jumpTime;
+        if (jumpHeld)
+        {
+            jumpTimer = jumpTime;
+        }
     }
 
 
