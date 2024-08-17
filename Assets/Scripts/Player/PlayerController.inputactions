@@ -15,6 +15,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Build",
+                    "type": "Button",
+                    "id": "07d5c819-41d8-4cf5-93d7-a6c96c618bb5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "MoveLeftRight",
                     "type": "Value",
                     "id": "395986be-fdee-45cd-bafd-63320893bb2e",
@@ -68,6 +77,17 @@
                     "action": "MoveLeftRight",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "bea5347b-baee-449f-b379-62e6227e2596",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Build",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
