@@ -36,13 +36,16 @@ public class PlayerController : Movement
             }
         }
 
+        Debug.Log(jumpBuffer);
+    }
+
+    private void FixedUpdate()
+    {
         if (jumpTimer > 0)
         {
             jumpTimer -= Time.deltaTime;
             rb.AddForce(Vector2.up * jumpSpeed * continuousJumpModifier, ForceMode2D.Force);
         }
-
-        Debug.Log(jumpBuffer);
     }
 
     private void LateUpdate()

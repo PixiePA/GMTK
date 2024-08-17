@@ -582,6 +582,10 @@ PrefabInstance:
       value: Triangle
       objectReference: {fileID: 0}
     - target: {fileID: 7862672562184664477, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862672562184664477, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
       propertyPath: m_GravityScale
       value: 1.1
       objectReference: {fileID: 0}
@@ -672,6 +676,10 @@ PrefabInstance:
     - target: {fileID: 7862672562184664547, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862672562184664550, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
+      propertyPath: jumpTime
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
