@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     [SerializeField] protected float jumpSpeed;
     [SerializeField] protected float dir;
     [SerializeField] private Rect rect;
-    [SerializeField] private LayerMask layerMask;
+    [SerializeField] protected LayerMask layerMask;
 
     [SerializeField] protected bool isGrounded;
     [SerializeField] protected bool isJumping;
