@@ -7,8 +7,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     protected Rigidbody2D rb;
-    [SerializeField] protected float moveSpeed = 1.0f;
-    [SerializeField] protected float jumpSpeed = 1.0f;
+    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected float jumpSpeed;
     [SerializeField] protected float dir;
     [SerializeField] private Rect rect;
     [SerializeField] private LayerMask layerMask;
@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //test
     }
 
     // Update is called once per frame
