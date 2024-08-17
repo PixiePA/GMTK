@@ -11,4 +11,11 @@ public static class PlayerEvents
     {
         onPlayerHurt?.Invoke(damage);
     }
+
+    public static Action<Vector2> onPlayerLocationUpdated;
+
+    public static void PlayerLocationUpdated(Vector2 location)
+    {
+        onPlayerLocationUpdated?.Invoke(location);
+    }
 }
