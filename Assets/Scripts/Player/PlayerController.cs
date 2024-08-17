@@ -7,10 +7,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : Movement
 {
-    [SerializeField] private float continuousJumpModifier = 0.1f;
-    [SerializeField] private float jumpTime = 0.3f;
+    [SerializeField] private float continuousJumpModifier;
+    [SerializeField] private float jumpTime;
     private float jumpTimer = -1;
-    [SerializeField] private float jumpBufferTime = 0.5f;
+    [SerializeField] private float jumpBufferTime;
     private float jumpBuffer = -1;
     private bool jumpHeld;
     // Start is called before the first frame update
