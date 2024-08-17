@@ -433,12 +433,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7862672562184664550, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
+      propertyPath: rect.y
+      value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862672562184664550, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
+      propertyPath: jumpTime
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862672562184664550, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
       propertyPath: jumpSpeed
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7862672562184664550, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
       propertyPath: moveSpeed
       value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862672562184664550, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
+      propertyPath: rect.height
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862672562184664550, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
+      propertyPath: jumpBufferTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862672562184664550, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
+      propertyPath: continuousJumpModifier
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}

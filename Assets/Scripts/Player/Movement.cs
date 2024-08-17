@@ -7,13 +7,13 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     protected Rigidbody2D rb;
-    [SerializeField] private float moveSpeed = 1.0f;
-    [SerializeField] private float jumpSpeed = 1.0f;
-    [SerializeField] private float dir;
+    [SerializeField] protected float moveSpeed = 1.0f;
+    [SerializeField] protected float jumpSpeed = 1.0f;
+    [SerializeField] protected float dir;
     [SerializeField] private Rect rect;
     [SerializeField] private LayerMask layerMask;
 
-    [SerializeField] bool isGrounded;
+    [SerializeField] protected bool isGrounded;
     [SerializeField] protected bool isJumping;
 
     // Start is called before the first frame update
@@ -23,21 +23,26 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
         isGrounded = CheckGround();
         rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
         //rb.gravityScale = isJumping ? 1 : 2;
     }
 
-    protected void Jump()
+    protected virtual void Jump()
     {
         Debug.Log(isGrounded);
-        if (isGrounded) rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-        isJumping = true;
+        if (isGrounded)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+            isJumping = true;
+        }
+        
     }
 
-    protected void Move(float dir)
+    protected virtual void Move(float dir)
     {
         this.dir = dir;
     }
