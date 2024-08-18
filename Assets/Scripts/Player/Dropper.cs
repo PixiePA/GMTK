@@ -30,6 +30,10 @@ public class Dropper : MonoBehaviour
         // Set SpriteRenderer to show the selected sprite
         target.sprite = inventory[selected].sprite;
         // Set spriterenderer position to mouse position
+    }
+
+    private void LateUpdate()
+    {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         target.transform.position = mousePos;
     }
