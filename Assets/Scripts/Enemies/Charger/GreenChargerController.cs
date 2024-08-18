@@ -32,6 +32,10 @@ public class GreenChargerController : ChargerController
 
         floorChecker.x = Mathf.Abs(floorChecker.x) * sign;
         wallDetector.x = Mathf.Abs(wallDetector.x) * sign;
+
+        floorChecker.width = Mathf.Abs(floorChecker.width) * sign;
+        wallDetector.width = Mathf.Abs(wallDetector.width) * sign;
+
         chargeForce = new Vector2(moveSpeed * sign, 0);
 
     }

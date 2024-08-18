@@ -81,7 +81,10 @@ public class ChargerController : Movement
 
     protected virtual void Charge()
     {
-        chargeForce = new Vector2(moveSpeed * Mathf.Sign(playerPosition.x - transform.position.x), 0);  
+        float sign = Mathf.Sign(playerPosition.x - transform.position.x);
+        wallDetector.x = Mathf.Abs(wallDetector.x) * sign;
+        wallDetector.width = Mathf.Abs(wallDetector.width) * sign;
+        chargeForce = new Vector2(moveSpeed * sign, 0);  
     }
 
     protected virtual void OnDrawGizmos()
