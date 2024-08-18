@@ -32,7 +32,7 @@ public class Dropper : MonoBehaviour
         // Set spriterenderer position to mouse position
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         target.transform.position = mousePos;
