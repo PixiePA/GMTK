@@ -70,14 +70,6 @@ public class PlayerController : Movement
         }
     }
 
-    private void LateUpdate()
-    {
-        if (rb.velocity.y <= -1f)
-        {
-            isJumping = false;
-        }
-    }
-
     public void JumpInput(InputAction.CallbackContext context)
     {
         if (context.performed)

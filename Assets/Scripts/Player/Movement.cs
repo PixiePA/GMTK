@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour
 
     [SerializeField] protected bool isGrounded;
     [SerializeField] protected bool isJumping;
+    private float bounceBuffer = 0f;
+    private Vector2 bounceDir = Vector2.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +28,22 @@ public class Movement : MonoBehaviour
     protected virtual void Update()
     {
         isGrounded = CheckGround();
-        rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
-        //rb.gravityScale = isJumping ? 1 : 2;
+        rb.velocity = new Vector2(dir * moveSpeed + bounceDir.x * bounceBuffer * 0.5f, rb.velocity.y);
+    }
+    private void LateUpdate()
+    {
+        if (rb.velocity.y <= -1f)
+        {
+            isJumping = false;
+        }
+        if (bounceBuffer > 0)
+        {
+            bounceBuffer -= Time.deltaTime;
+        }
+        else
+        {
+            bounceBuffer = 0;
+        }
     }
 
     protected virtual void Jump()
@@ -57,5 +73,14 @@ public class Movement : MonoBehaviour
         // draw rectangle in gizmos based on rect
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(rect.center + (Vector2)transform.position, rect.size);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.GetComponent<BouncePad>())
+        {
+            bounceBuffer = 1f;
+            bounceDir = collision.collider.GetComponent<BouncePad>().GetBounceDirection;
+        }
     }
 }
