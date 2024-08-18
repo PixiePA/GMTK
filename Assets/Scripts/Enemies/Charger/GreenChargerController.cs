@@ -2,17 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GreenChargerController : MonoBehaviour
+public class GreenChargerController : ChargerController
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Rect floorChecker;
+    [SerializeField] bool moveLeft;
+
+    protected override bool isAgitated()
     {
-        
+        return true;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void OnMoveInterrupt()
     {
-        
+        moveLeft = !moveLeft;
+    }
+
+    protected override bool CanMove()
+    {
+        return /*base.CanMove() &&*/ Physics2D.OverlapBox(floorChecker.center + (Vector2)transform.position, floorChecker.size, 0, layerMask);
+    }
+
+    protected override void Charge()
+    {
+        int sign = 1;
+        if (moveLeft)
+        {
+            sign = -1;
+        }
+
+        floorChecker.x *= sign;
+        chargeForce = new Vector2(moveSpeed * sign, 0);
+
+    }
+
+    protected override void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(floorChecker.center + (Vector2)transform.position, floorChecker.size);
+        base.OnDrawGizmos();
     }
 }
