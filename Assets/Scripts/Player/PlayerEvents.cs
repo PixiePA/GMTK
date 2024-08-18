@@ -18,4 +18,18 @@ public static class PlayerEvents
     {
         onPlayerLocationUpdated?.Invoke(location);
     }
+
+    public static Action<int> onTilePlaced;
+    
+    public static void TilePlaced(int tile)
+    {
+        onTilePlaced?.Invoke(tile);
+    }
+
+    public static Action<List<Tile>> onInventory;
+
+    public static void Inventory(List<Tile> inventory)
+    {
+        onInventory?.Invoke(inventory);
+    }
 }
