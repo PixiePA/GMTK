@@ -19,7 +19,7 @@ public class GreenChargerController : ChargerController
 
     protected override bool CanMove()
     {
-        return /*base.CanMove() &&*/ Physics2D.OverlapBox(floorChecker.center + (Vector2)transform.position, floorChecker.size, 0, layerMask);
+        return base.CanMove() && Physics2D.OverlapBox(floorChecker.center + (Vector2)transform.position, floorChecker.size, 0, layerMask);
     }
 
     protected override void Charge()
@@ -30,7 +30,8 @@ public class GreenChargerController : ChargerController
             sign = -1;
         }
 
-        floorChecker.x *= sign;
+        floorChecker.x = Mathf.Abs(floorChecker.x) * sign;
+        wallDetector.x = Mathf.Abs(wallDetector.x) * sign;
         chargeForce = new Vector2(moveSpeed * sign, 0);
 
     }

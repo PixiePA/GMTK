@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 299328067497109372}
   - component: {fileID: 299328067497109373}
   - component: {fileID: 299328067497109375}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Charger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
     height: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 129
   isGrounded: 0
   isJumping: 0
   wallDetector:
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 299328067871539002}
   - component: {fileID: 2821539202004054364}
   - component: {fileID: 2314250017241957189}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,8 +195,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299328067871539000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.001, y: 0.592, z: 0}
-  m_LocalScale: {x: 1.0351, y: 0.18202, z: 1}
+  m_LocalPosition: {x: 0, y: 0.592, z: 0}
+  m_LocalScale: {x: 0.74, y: 0.18202, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 299328067497109362}
