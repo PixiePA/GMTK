@@ -9,6 +9,9 @@ public class BouncePad : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Rigidbody2D otherRigidbody = collision.collider.GetComponent<Rigidbody2D>();
-        otherRigidbody?.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+        if (otherRigidbody != null)
+        {
+            otherRigidbody.velocity = new Vector2(otherRigidbody.velocity.x, bounceForce);
+        }
     }
 }
