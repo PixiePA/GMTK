@@ -51,6 +51,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Remove",
+                    "type": "Button",
+                    "id": "f49f0844-c30c-4667-a1c5-4ede092b2496",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "MoveLeftRight",
                     "type": "Value",
                     "id": "395986be-fdee-45cd-bafd-63320893bb2e",
@@ -188,6 +197,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Select3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ee77f11-5c05-4044-99d2-e75ef3688ee5",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Remove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

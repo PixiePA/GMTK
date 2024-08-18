@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2164093056744465770}
   - component: {fileID: 2164093056744465773}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: New Piskel(1)_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2164093057283987169}
   - component: {fileID: 2164093057283987166}
   - component: {fileID: -3189054855917931571}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SlopeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

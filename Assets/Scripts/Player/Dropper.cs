@@ -11,6 +11,7 @@ public class Dropper : MonoBehaviour
     [SerializeField] private SpriteRenderer target;
     [SerializeField] int selected = 0;
     [SerializeField] private ParticleSystem ps;
+    [SerializeField] private LayerMask layerMask;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +28,6 @@ public class Dropper : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         target.transform.position = mousePos;
     }
-
-    //private void OnGUI()
-    //{
-    //    // Draw the selected sprite at the mouse position
-    //    Vector2 mousePos = Event.current.mousePosition;
-    //    GUI.DrawTexture(new Rect(mousePos.x -10, mousePos.y -10, 50, 50), sprite[selected].texture);
-    //}
 
     public void Scroll(InputAction.CallbackContext context)
     {
@@ -73,6 +67,20 @@ public class Dropper : MonoBehaviour
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             Instantiate(prefab[selected], mousePos, Quaternion.identity);
             ps.Play();
+        }
+    }
+
+    public void Remove(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
+            Collider2D target = Physics2D.OverlapCircle(mousePos, 0.5f, layerMask);
+            if(target)
+            {
+                Destroy(target.gameObject);
+            }
         }
     }
 }
