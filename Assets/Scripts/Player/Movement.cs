@@ -44,6 +44,7 @@ public class Movement : MonoBehaviour
         {
             bounceBuffer = 0;
         }
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -13.7f, 13.7f), transform.position.y, 0);
     }
 
     protected virtual void Jump()
