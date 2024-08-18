@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class ChargerController : Movement
 {
-    private Vector2 playerPosition = Vector2.negativeInfinity;
-    private Vector2 chargeForce = Vector2.zero;
-    [SerializeField] private Rect wallDetector = new Rect();
+    protected Vector2 playerPosition = Vector2.negativeInfinity;
+    protected Vector2 chargeForce = Vector2.zero;
+    [SerializeField] protected Rect wallDetector = new Rect();
     // Start is called before the first frame update
     private void Awake()
     {
@@ -38,14 +38,14 @@ public class ChargerController : Movement
     private void FixedUpdate()
     {
 
-        if (Mathf.Abs(transform.position.y - playerPosition.y) < 1)
+        if (isAgitated())
         {
             Charge();
         }
 
-        if (Physics2D.OverlapBox(wallDetector.center + (Vector2)transform.position, wallDetector.size, 0, layerMask))
+        if (!CanMove())
         {
-            chargeForce = Vector2.zero;
+            OnMoveInterrupt();
         }
 
         rb.AddForce(chargeForce, ForceMode2D.Impulse);
@@ -59,17 +59,32 @@ public class ChargerController : Movement
         }
     }
 
-    private void PlayerPositionUpdated(Vector2 playerPosition)
+    protected virtual bool CanMove()
+    {
+        return !Physics2D.OverlapBox(wallDetector.center + (Vector2)transform.position, wallDetector.size, 0, layerMask);
+    }
+
+    protected virtual bool isAgitated()
+    {
+        return Mathf.Abs(transform.position.y - playerPosition.y) < 1;
+    }
+
+    protected virtual void OnMoveInterrupt()
+    {
+        chargeForce = Vector2.zero;
+    }
+
+    protected void PlayerPositionUpdated(Vector2 playerPosition)
     {
         this.playerPosition = playerPosition;
     }
 
-    private void Charge()
+    protected virtual void Charge()
     {
         chargeForce = new Vector2(moveSpeed * Mathf.Sign(playerPosition.x - transform.position.x), 0);  
     }
 
-    void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
         // draw rectangle in gizmos based on rect
         Gizmos.color = Color.cyan;

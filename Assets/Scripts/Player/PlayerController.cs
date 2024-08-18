@@ -60,7 +60,7 @@ public class PlayerController : Movement
         if (jumpTimer > 0)
         {
             jumpTimer -= Time.deltaTime;
-            rb.AddForce(Vector2.up * jumpSpeed * continuousJumpModifier, ForceMode2D.Force);
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + jumpSpeed * continuousJumpModifier);
         }
 
         if (updateCounter-- == 0)
@@ -105,7 +105,12 @@ public class PlayerController : Movement
 
     protected override void Jump()
     {
-        base.Jump();
+        if (isGrounded)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, 0) + jumpSpeed);
+            isJumping = true;
+        }
+        
         if (jumpHeld)
         {
             jumpTimer = jumpTime;
