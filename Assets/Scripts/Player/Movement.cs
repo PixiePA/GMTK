@@ -49,7 +49,6 @@ public class Movement : MonoBehaviour
 
     protected virtual void Jump()
     {
-        Debug.Log(isGrounded);
         if (isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
