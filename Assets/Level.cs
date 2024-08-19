@@ -16,6 +16,19 @@ public class Level : MonoBehaviour
     {
         PlayerEvents.onTilePlaced += TilePlaced;
         PlayerEvents.onInventory += ResetGameState;
+        PlayerEvents.onRestock += Restock;
+    }
+
+    void Restock(List<Tile> inventory)
+    {
+        this.inventory.Clear();
+        for (int i = 0;
+            i < inventory.Count;
+                       i++)
+        {
+            this.inventory.Add(new Tile(inventory[i]));
+        }
+        PlayerEvents.Inventory(this.inventory);
     }
 
     // Update is called once per frame

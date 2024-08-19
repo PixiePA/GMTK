@@ -32,4 +32,18 @@ public static class PlayerEvents
     {
         onInventory?.Invoke(inventory);
     }
+
+    public static Action<List<Tile>> onRestock;
+
+    public static void Restock(List<Tile> inventory)
+    {
+        onRestock?.Invoke(inventory);
+    }
+
+    public static Action<Vector2> onInteract;
+
+    public static void Interact(Vector2 pos)
+    {
+        onInteract?.Invoke(pos);
+    }
 }
