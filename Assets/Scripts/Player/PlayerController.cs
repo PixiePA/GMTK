@@ -109,5 +109,9 @@ public class PlayerController : Movement
         }
     }
 
-
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+            PlayerEvents.Interact(transform.position);
+    }
 }

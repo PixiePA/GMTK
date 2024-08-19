@@ -45,7 +45,7 @@ public class Dropper : MonoBehaviour
 
     public void Scroll(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && inventory.Count != 0)
         {
             int scrollValue = context.ReadValue<float>() >= 0 ? 1 : -1;
             selected += scrollValue;
