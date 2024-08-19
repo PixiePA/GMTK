@@ -22,7 +22,7 @@ public class TileUI : MonoBehaviour
         UpdateTiles();
     }
 
-    void TilePlaced(int tile)
+    void TilePlaced(GameObject tile)
     {
         UpdateTiles();
     }

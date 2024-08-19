@@ -79,7 +79,7 @@ public class Dropper : MonoBehaviour
         if (context.performed && inventory.Count != 0)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            Instantiate(prefab[inventory[selected].id], mousePos, Quaternion.identity);
+            GameObject reference = Instantiate(prefab[inventory[selected].id], mousePos, Quaternion.identity);
             ps.Play();
 
             Tile _tile = inventory[selected];
@@ -100,7 +100,7 @@ public class Dropper : MonoBehaviour
             {
                 target.sprite = null;
             }
-            PlayerEvents.TilePlaced(selected);
+            PlayerEvents.TilePlaced(reference);
         }
     }
 

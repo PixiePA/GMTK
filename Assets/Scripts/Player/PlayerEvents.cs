@@ -19,11 +19,11 @@ public static class PlayerEvents
         onPlayerLocationUpdated?.Invoke(location);
     }
 
-    public static Action<int> onTilePlaced;
+    public static Action<GameObject> onTilePlaced;
     
-    public static void TilePlaced(int tile)
+    public static void TilePlaced(GameObject reference)
     {
-        onTilePlaced?.Invoke(tile);
+        onTilePlaced?.Invoke(reference);
     }
 
     public static Action<List<Tile>> onInventory;
