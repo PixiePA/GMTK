@@ -32,4 +32,10 @@ public class ButtonController : MonoBehaviour
         activated = currentlyActivated;
         
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(detectionArea.center + (Vector2)transform.position, detectionArea.size);
+    }
 }
