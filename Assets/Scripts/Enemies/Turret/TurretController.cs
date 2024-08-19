@@ -28,6 +28,10 @@ public class TurretController : MonoBehaviour
         if (castResult)
         {
             hitLocation = castResult.point;
+            if (castResult.collider.tag == "Player")
+            {
+                PlayerEvents.PlayerHurt(1);
+            }
         }
 
         
