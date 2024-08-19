@@ -9772,5 +9772,14 @@ PrefabInstance:
       propertyPath: rect.height
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 7862672562184664550, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 7862672560268610339}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
+--- !u!212 &7862672560268610339 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7862672562184664546, guid: fdfcf06848ff2b44eab7a7a0294e5d11, type: 3}
+  m_PrefabInstance: {fileID: 7862672560268610338}
+  m_PrefabAsset: {fileID: 0}
