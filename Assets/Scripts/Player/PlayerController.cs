@@ -14,25 +14,58 @@ public class PlayerController : Movement
     private float jumpBuffer = -1;
     private bool jumpHeld;
     private int updateCounter = 20;
+    [SerializeField] private Vector2 respawnLocation;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (!spriteRenderer )
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        respawnLocation = new Vector2(transform.position.x, transform.position.y);
     }
 
     private void OnEnable()
     {
         PlayerEvents.onPlayerHurt += PlayerHit;
+        PlayerEvents.onPlayerRespawnLocationUpdated += UpdateRespawnLocation;
+        PlayerEvents.onRestock += TerminalActivated;
+        PlayerEvents.onRespawnPlayer += RespawnPlayer;
     }
 
     private void OnDisable()
     {
         PlayerEvents.onPlayerHurt -= PlayerHit;
+        PlayerEvents.onPlayerRespawnLocationUpdated -= UpdateRespawnLocation;
+        PlayerEvents.onRestock -= TerminalActivated;
+        PlayerEvents.onRespawnPlayer -= RespawnPlayer;
     }
 
     private void PlayerHit(int damage)
     {
-        Debug.Log("YOU ARE DEAD");
+        rb.simulated = false;
+        spriteRenderer.enabled = false;
+        PlayerEvents.PlayerKilled();
+    }
+
+    private void TerminalActivated(List<Tile> tileList)
+    {
+        PlayerEvents.PlayerRespawnLocationUpdated(new Vector2(transform.position.x, transform.position.y));
+    }
+
+    private void UpdateRespawnLocation(Vector2 respawnLocation)
+    {
+        this.respawnLocation = respawnLocation;
+    }
+
+    private void RespawnPlayer()
+    {
+        rb.simulated = true;
+        spriteRenderer.enabled = true;
+        transform.position = respawnLocation;
     }
 
     // Update is called once per frame

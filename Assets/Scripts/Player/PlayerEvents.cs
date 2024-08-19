@@ -46,4 +46,25 @@ public static class PlayerEvents
     {
         onInteract?.Invoke(pos);
     }
+
+    public static Action<Vector2> onPlayerRespawnLocationUpdated;
+
+    public static void PlayerRespawnLocationUpdated(Vector2 location)
+    {
+        onPlayerRespawnLocationUpdated?.Invoke(location);
+    }
+
+    public static Action onPlayerKilled;
+
+    public static void PlayerKilled()
+    {
+        onPlayerKilled?.Invoke();
+    }
+
+    public static Action onRespawnPlayer;
+
+    public static void RespawnPlayer()
+    {
+        onRespawnPlayer?.Invoke();
+    }
 }
