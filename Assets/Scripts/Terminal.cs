@@ -6,6 +6,9 @@ using UnityEngine;
 public class Terminal : MonoBehaviour
 {
     [SerializeField] private List<Tile> inventory;
+
+    [SerializeField] private Animator animator;
+
     new private Collider2D collider2D;
 
     // Start is called before the first frame update
@@ -17,6 +20,11 @@ public class Terminal : MonoBehaviour
     }
     void Refill(Vector2 pos)
     {
-        if(collider2D.OverlapPoint(pos)) PlayerEvents.Restock(inventory);
+        if (collider2D.OverlapPoint(pos))
+        {
+            PlayerEvents.Restock(inventory);
+
+            animator.SetTrigger("Activated");
+        }
     }
 }
