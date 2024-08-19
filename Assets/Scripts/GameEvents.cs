@@ -11,4 +11,11 @@ public static class GameEvents
     {
         onGoalReached?.Invoke();
     }
+
+    public static Action<Vector2> onTileRemoved; //Largely unused
+
+    public static void TileRemoved(Vector2 pos)
+    {
+        onTileRemoved?.Invoke(pos);
+    }
 }

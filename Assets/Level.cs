@@ -26,7 +26,8 @@ public class Level : MonoBehaviour
             i < inventory.Count;
                        i++)
         {
-            this.inventory.Add(new Tile(inventory[i]));
+            if (inventory[i].amount > 0)
+                this.inventory.Add(new Tile(inventory[i]));
         }
         PlayerEvents.Inventory(this.inventory);
     }
