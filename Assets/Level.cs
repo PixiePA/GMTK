@@ -12,11 +12,18 @@ public class Level : MonoBehaviour
     {
         PlayerEvents.Inventory(inventory);
     }
-    private void Awake()
+    private void OnEnable()
     {
         PlayerEvents.onTilePlaced += TilePlaced;
         PlayerEvents.onInventory += ResetGameState;
         PlayerEvents.onRestock += Restock;
+    }
+
+    private void OnDisable()
+    {
+        PlayerEvents.onTilePlaced -= TilePlaced;
+        PlayerEvents.onInventory -= ResetGameState;
+        PlayerEvents.onRestock -= Restock;
     }
 
     void Restock(List<Tile> inventory)
