@@ -56,6 +56,7 @@ public class PlayerController : Movement
 
     private void TerminalActivated(List<Tile> tileList)
     {
+        if (ResetSFX) ResetSFX.Play();
         PlayerEvents.PlayerRespawnLocationUpdated(new Vector2(transform.position.x, transform.position.y));
     }
 
