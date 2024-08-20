@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 2164093057283987169}
   - component: {fileID: 2164093057283987166}
   - component: {fileID: -3189054855917931571}
+  - component: {fileID: -6198781498096033555}
   m_Layer: 7
   m_Name: SlopeR
   m_TagString: Untagged
@@ -239,3 +240,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-6198781498096033555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2164093057283987167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925ad28a4c1feda4dbebaac88f73ac22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

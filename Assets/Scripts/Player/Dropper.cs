@@ -14,9 +14,14 @@ public class Dropper : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private List<Tile> inventory;
     // Start is called before the first frame update
-    void Awake()
+    void OnEnable()
     {
         PlayerEvents.onInventory += Inventory;
+    }
+
+    private void OnDisable()
+    {
+        PlayerEvents.onInventory -= Inventory;
     }
 
     // Update is called once per frame
@@ -113,7 +118,8 @@ public class Dropper : MonoBehaviour
             Collider2D target = Physics2D.OverlapCircle(mousePos, 0.5f, layerMask);
             if(target)
             {
-                Destroy(target.gameObject);
+                target.transform.GetChild(0).gameObject.SetActive(false);
+                target.GetComponent<Collider2D>().enabled = false;
             }
         }
     }

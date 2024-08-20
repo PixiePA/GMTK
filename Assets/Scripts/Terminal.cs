@@ -12,11 +12,16 @@ public class Terminal : MonoBehaviour
     new private Collider2D collider2D;
 
     // Start is called before the first frame update
-    private void Awake()
+    private void OnEnable()
     {
         PlayerEvents.onInteract += Refill;
 
         collider2D = GetComponent<Collider2D>();
+    }
+
+    private void OnDisable()
+    {
+        PlayerEvents.onInteract -= Refill;
     }
     void Refill(Vector2 pos)
     {

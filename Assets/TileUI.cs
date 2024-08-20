@@ -9,12 +9,17 @@ public class TileUI : MonoBehaviour
     [SerializeField] private List<Tile> tiles;
     [SerializeField] private GameObject[] tileUI;
     // Start is called before the first frame update
-    void Awake()
+    void OnEnable()
     {
         PlayerEvents.onInventory += Inventory;
         PlayerEvents.onTilePlaced += TilePlaced;
     }
 
+    private void OnDisable()
+    {
+        PlayerEvents.onInventory -= Inventory;
+        PlayerEvents.onTilePlaced -= TilePlaced;
+    }
     // Update is called once per frame
     void Inventory(List<Tile> inventory)
     {

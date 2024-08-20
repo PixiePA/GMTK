@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
         GameEvents.onGoalReached += OnLevelFinish;
         PlayerEvents.onPlayerKilled += OnPlayerDied;
         PlayerEvents.onRestock += OnRestock;
+        PlayerEvents.onInventory += OnRestock;
     }
 
     private void OnDisable()
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
         GameEvents.onGoalReached -= OnLevelFinish;
         PlayerEvents.onPlayerKilled -= OnPlayerDied;
         PlayerEvents.onRestock -= OnRestock;
+        PlayerEvents.onInventory -= OnRestock;
     }
 
     // Start is called before the first frame update
