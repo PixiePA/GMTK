@@ -67,4 +67,11 @@ public static class PlayerEvents
     {
         onRespawnPlayer?.Invoke();
     }
+
+    public static Action<Vector2> onBounce;
+
+    public static void Bounce(Vector2 pos)
+    {
+        onBounce?.Invoke(pos);
+    }
 }

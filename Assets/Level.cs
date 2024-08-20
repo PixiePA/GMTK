@@ -7,6 +7,8 @@ public class Level : MonoBehaviour
     [SerializeField] private List<Tile> inventory;
     private List<GameObject> gameObjects = new List<GameObject>();
 
+    [SerializeField] private AudioSource bounceAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class Level : MonoBehaviour
         PlayerEvents.onTilePlaced += TilePlaced;
         PlayerEvents.onInventory += ResetGameState;
         PlayerEvents.onRestock += Restock;
+        PlayerEvents.onBounce += BounceAudio;
     }
 
     private void OnDisable()
@@ -24,6 +27,13 @@ public class Level : MonoBehaviour
         PlayerEvents.onTilePlaced -= TilePlaced;
         PlayerEvents.onInventory -= ResetGameState;
         PlayerEvents.onRestock -= Restock;
+        PlayerEvents.onBounce -= BounceAudio;
+    }
+
+    void BounceAudio(Vector2 pos)
+    {
+        bounceAudio.transform.position = pos;
+        bounceAudio.Play();
     }
 
     void Restock(List<Tile> inventory)

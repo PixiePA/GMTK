@@ -15,6 +15,7 @@ public class BouncePad : MonoBehaviour
         {
             otherRigidbody.velocity = Vector3.zero;
             otherRigidbody.velocity = GetBounceDirection;
+            PlayerEvents.Bounce(transform.position);
         }
     }
 }
