@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.12549019, g: 0.4972146, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 69525df31b8570a46bce3577d3ae3ce7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -141,6 +141,8 @@ MonoBehaviour:
   jumpBufferTime: 0.3
   respawnLocation: {x: 0, y: 0}
   spriteRenderer: {fileID: 0}
+  ResetSFX: {fileID: 0}
+  JumpSFX: {fileID: 0}
 --- !u!114 &4218926752131349735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,13 +163,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 77466d76fd8c4f344b00309f77cde4c7, type: 3}
   - {fileID: 21300000, guid: 4e15040fff2f197458fb47f4f547c82e, type: 3}
   - {fileID: 21300000, guid: c9cb80614a634644db3cf87ea3301b29, type: 3}
+  NuhUh: {fileID: 0}
   target: {fileID: 0}
   selected: 0
   ps: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 128
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 0
   inventory: []
+  DropSFX: {fileID: 0}
+  BreakSFX: {fileID: 0}
 --- !u!114 &7862672562184664545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,8 +342,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
