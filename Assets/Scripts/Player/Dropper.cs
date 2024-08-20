@@ -8,11 +8,14 @@ public class Dropper : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefab;
     [SerializeField] private Sprite[] sprite;
+    [SerializeField] private Sprite NuhUh;
     [SerializeField] private SpriteRenderer target;
     [SerializeField] int selected = 0;
     [SerializeField] private ParticleSystem ps;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private LayerMask playerMask;
     [SerializeField] private List<Tile> inventory;
+    private bool isBlocked = false;
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -33,7 +36,14 @@ public class Dropper : MonoBehaviour
         }
         //Cursor.SetCursor(sprite[selected].texture, Vector2.one * 5, CursorMode.Auto);
         // Set SpriteRenderer to show the selected sprite
-        target.sprite = inventory[selected].sprite;
+        if (isBlocked)
+        {
+            target.sprite = NuhUh;
+        }
+        else
+        {
+            target.sprite = inventory[selected].sprite;
+        }
         // Set spriterenderer position to mouse position
     }
 
@@ -41,6 +51,22 @@ public class Dropper : MonoBehaviour
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         target.transform.position = mousePos;
+
+        isBlocked = Physics2D.OverlapCircle(mousePos, 0.5f, playerMask);
+        //{
+        //    Transform other = Physics2D.OverlapCircle(mousePos, 0.5f, playerMask).transform;
+        //    int loopbreaker5000 = 0;
+        //    while(Physics2D.OverlapCircle(mousePos, 0.5f, playerMask) || loopbreaker5000 > 100)
+        //    {
+        //        mousePos = Vector2.MoveTowards(mousePos, other.position, -0.1f);
+        //        loopbreaker5000++;
+        //    }
+        //    target.transform.position = mousePos;
+        //}
+        //else
+        //{
+        //    target.transform.position = mousePos;
+        //}
     }
 
     private void Inventory(List<Tile> inventory)
@@ -81,10 +107,13 @@ public class Dropper : MonoBehaviour
 
     public void Drop(InputAction.CallbackContext context)
     {
+        if(isBlocked)
+        {
+            return;
+        }
         if (context.performed && inventory.Count != 0)
         {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            GameObject reference = Instantiate(prefab[inventory[selected].id], mousePos, Quaternion.identity);
+            GameObject reference = Instantiate(prefab[inventory[selected].id], target.transform.position, Quaternion.identity);
             ps.Play();
 
             Tile _tile = inventory[selected];

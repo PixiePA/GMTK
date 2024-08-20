@@ -12,6 +12,8 @@ public class TurretController : MonoBehaviour
 
     [SerializeField] private LineRenderer laserRenderer;
 
+    [SerializeField] private LayerMask nogoLayer;
+
     private void Start()
     {
         rayDirection.Normalize();
@@ -21,7 +23,7 @@ public class TurretController : MonoBehaviour
     {
         Vector2 rayStart = (Vector2)transform.position + rayOrigin;
 
-        RaycastHit2D castResult = Physics2D.Raycast((Vector2)transform.position + rayOrigin, rayDirection, maxLaserDistance);
+        RaycastHit2D castResult = Physics2D.Raycast((Vector2)transform.position + rayOrigin, rayDirection, maxLaserDistance, nogoLayer);
 
         Vector2 hitLocation = rayStart + rayDirection*maxLaserDistance;
 

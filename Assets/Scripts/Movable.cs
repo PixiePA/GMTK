@@ -33,4 +33,13 @@ public class Movable : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.CompareTag("Player"))
+        {
+            return;
+        }
+        gameObject.layer = 7;
+    }
 }
