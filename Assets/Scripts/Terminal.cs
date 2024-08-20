@@ -9,7 +9,7 @@ public class Terminal : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
-    new private Collider2D collider2D;
+    private Collider2D collider2D;
 
     // Start is called before the first frame update
     private void OnEnable()
