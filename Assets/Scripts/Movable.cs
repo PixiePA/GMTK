@@ -19,7 +19,7 @@ public class Movable : MonoBehaviour
         PlayerEvents.onInventory -= Respawn;
     }
 
-    private void Start()
+    private void Awake()
     {
         origin = transform.position;
     }
