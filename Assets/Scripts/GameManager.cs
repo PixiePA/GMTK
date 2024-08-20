@@ -1,11 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<Tile> lastInventory = new List<Tile>();
+
+    [SerializeField] private TMP_Text timerText;
+
+    private float timer;
     private void OnEnable()
     {
         GameEvents.onGoalReached += OnLevelFinish;
@@ -50,5 +55,16 @@ public class GameManager : MonoBehaviour
     private void OnLevelFinish()
     {
         SceneChanger.LoadWinScreen();
+        PlayerPrefs.SetFloat("lastTime", timer);
+        if (PlayerPrefs.GetFloat("bestTime") > timer)
+        {
+            PlayerPrefs.SetFloat("bestTime", timer);
+        }
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        timerText.text = (Mathf.Floor(timer).ToString() + "." + (Mathf.Floor(timer % 1 * 10)).ToString()).ToLower();
     }
 }
