@@ -49,6 +49,6 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelFinish()
     {
-        Debug.Log("You win!");
+        SceneChanger.LoadWinScreen();
     }
 }
