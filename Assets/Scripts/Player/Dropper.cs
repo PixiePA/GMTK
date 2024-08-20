@@ -15,6 +15,9 @@ public class Dropper : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private LayerMask playerMask;
     [SerializeField] private List<Tile> inventory;
+    [SerializeField] private AudioSource DropSFX;
+    [SerializeField] private AudioSource BreakSFX;
+
     private bool isBlocked = false;
     // Start is called before the first frame update
     void OnEnable()
@@ -114,7 +117,6 @@ public class Dropper : MonoBehaviour
         if (context.performed && inventory.Count != 0)
         {
             GameObject reference = Instantiate(prefab[inventory[selected].id], target.transform.position, Quaternion.identity);
-            ps.Play();
 
             Tile _tile = inventory[selected];
             _tile.amount--;
@@ -134,6 +136,7 @@ public class Dropper : MonoBehaviour
             {
                 target.sprite = null;
             }
+            if(DropSFX) DropSFX.Play();
             PlayerEvents.TilePlaced(reference);
         }
     }
@@ -149,6 +152,8 @@ public class Dropper : MonoBehaviour
             {
                 target.transform.GetChild(0).gameObject.SetActive(false);
                 target.GetComponent<Collider2D>().enabled = false;
+                if(BreakSFX) BreakSFX.Play();
+                ps.Play();
             }
         }
     }

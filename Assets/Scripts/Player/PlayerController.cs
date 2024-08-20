@@ -16,6 +16,9 @@ public class PlayerController : Movement
     private int updateCounter = 20;
     [SerializeField] private Vector2 respawnLocation;
     [SerializeField] private SpriteRenderer spriteRenderer;
+
+    [SerializeField] private AudioSource ResetSFX;
+    [SerializeField] private AudioSource JumpSFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +69,7 @@ public class PlayerController : Movement
         rb.simulated = true;
         spriteRenderer.enabled = true;
         transform.position = respawnLocation;
+        if (ResetSFX) ResetSFX.Play();
     }
 
     // Update is called once per frame
@@ -78,6 +82,7 @@ public class PlayerController : Movement
             {
                 Jump();
                 jumpBuffer = 0;
+                if (JumpSFX) JumpSFX.Play();
             }
             else
             {
